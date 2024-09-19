@@ -31,7 +31,13 @@ export default function Home() {
 
       {/* ヒーローセクション */}
       <section id="hero" className="relative w-full h-[900px] ">
-        <video src="/videos/hero_20240913.mp4" className="w-full h-full object-cover" autoPlay loop muted />
+        <video
+          src={`${BASE_PATH}/videos/hero_20240913.mp4`}
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+        />
       </section>
 
       <section id="client" className="relative w-full h-full">
@@ -63,7 +69,11 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="hero" className="relative w-full h-full bg-cover bg-[url('/images/service_bg.png')]">
+      <section
+        id="hero"
+        className="relative w-full h-full bg-cover"
+        style={{ backgroundImage: `url('${BASE_PATH}/images/service_bg.png')` }}
+      >
         <div className="flex p-36">
           <section className="flex flex-col gap-16">
             <div className="flex flex-col w-1/2 gap-12">
@@ -79,7 +89,7 @@ export default function Home() {
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-3/4">
               <div className="bg-white shadow-md">
                 <Image
-                  src="/images/card_image_1.png"
+                  src={`${BASE_PATH}/images/card_image_1.png`}
                   alt="Product Image"
                   width={600}
                   height={350}
@@ -101,7 +111,7 @@ export default function Home() {
               </div>
               <div className="bg-white shadow-md">
                 <Image
-                  src="/images/card_image_2.png"
+                  src={`${BASE_PATH}/images/card_image_2.png`}
                   alt="Product Image"
                   width={600}
                   height={350}
@@ -123,7 +133,7 @@ export default function Home() {
               </div>
               <div className="bg-white shadow-md">
                 <Image
-                  src="/images/card_image_3.png"
+                  src={`${BASE_PATH}/images/card_image_3.png`}
                   alt="Product Image"
                   width={600}
                   height={350}
