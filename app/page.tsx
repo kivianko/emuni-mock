@@ -1,101 +1,152 @@
+import Banner from "@/components/modal/banner";
+import SphereParticleSystem from "@/utils/threejs_particle";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
+const clientLogos = [
+  { src: "/images/client_logo/sumitomo.png", alt: "Client 1", width: 180, height: 50 },
+  { src: "/images/client_logo/tokyo.png", alt: "Client 2", width: 180, height: 50 },
+  { src: "/images/client_logo/stnet.png", alt: "Client 3", width: 150, height: 50 },
+  { src: "/images/client_logo/soundone.png", alt: "Client 4", width: 280, height: 50 },
+  { src: "/images/client_logo/npat.png", alt: "Client 5", width: 180, height: 50 },
+  { src: "/images/client_logo/sagri.png", alt: "Client 6", width: 120, height: 50 },
+  { src: "/images/client_logo/yamaguchi.png", alt: "Client 7", width: 300, height: 50 },
+];
+
+const partnerslogos = [
+  { src: "/images/partners_logo/google_logo.png", alt: "Client 1", width: 350, height: 50 },
+  { src: "/images/partners_logo/AWS_Activate_logo.png", alt: "Client 2", width: 200, height: 50 },
+  { src: "/images/partners_logo/microsoft_logo.png", alt: "Client 3", width: 200, height: 50 },
+  { src: "/images/partners_logo/nttpc_communications_logo.png", alt: "Client 4", width: 230, height: 50 },
+  { src: "/images/partners_logo/Socoラボロゴ.png", alt: "Client 5", width: 80, height: 50 },
+  { src: "/images/partners_logo/hexagon.png", alt: "Client 6", width: 120, height: 50 },
+  { src: "/images/partners_logo/ICF_logo.png", alt: "Client 7", width: 180, height: 50 },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="flex flex-col h-full">
+      <Banner imageSrc="/images/banner_20240918.png" altText="生成AI事例への案内バナー" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* ヒーローセクション */}
+      <section id="hero" className="relative w-full h-[900px] ">
+        <video src="/videos/hero_20240913.mp4" className="w-full h-full object-cover" autoPlay loop muted />
+      </section>
+
+      <section id="client" className="relative w-full h-full">
+        <SphereParticleSystem width="100%" height="1280px" />
+        <div className="absolute inset-0 flex flex-wrap justify-center max-w-[1280px] mx-auto pt-32 gap-14">
+          {/* 主要取引先 */}
+          <section className="flex flex-col gap-20">
+            <h2 className="text-4xl font-semibold text-center">主要取引先</h2>
+            <ul className="flex flex-row flex-wrap gap-x-36 gap-y-16 items-center justify-center">
+              {clientLogos.map((logo, index) => (
+                <li key={index} className="flex items-center justify-center">
+                  <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
+                </li>
+              ))}
+            </ul>
+          </section>
+          {/* Partners */}
+          <section className="flex flex-col gap-20">
+            <h2 className="text-4xl font-semibold text-center">Partners</h2>
+            <ul className="flex flex-row flex-wrap gap-x-36 gap-y-16 items-center justify-center">
+              {partnerslogos.map((logo, index) => (
+                <li key={index} className="flex items-center justify-center">
+                  <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Services */}
+      <section id="hero" className="relative w-full h-full bg-cover bg-[url('/images/service_bg.png')]">
+        <div className="flex p-36">
+          <section className="flex flex-col gap-16">
+            <div className="flex flex-col w-1/2 gap-12">
+              <h3 className="text-white text-4xl leading-relaxed">
+                京大・松尾研出身者の技術力で創る
+                <br />
+                製造業特化型 生成AI開発サービス
+              </h3>
+              <p className="text-white leading-relaxed">
+                京都大学大学院でAI研究に従事したメンバーや、東京大学大学院工学系研究科松尾研究室とビジョンを共有する松尾研究所でAI社会実装を経験したメンバーが、多数のハッカソン入賞歴を誇る高いシステム開発力を活かし、貴社に最適なAIソリューションを提供いたします。
+              </p>
+            </div>
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-3/4">
+              <div className="bg-white shadow-md">
+                <Image
+                  src="/images/card_image_1.png"
+                  alt="Product Image"
+                  width={600}
+                  height={350}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-6">
+                  <h2 className="text-2xl text-center font-bold mb-6">
+                    製造業向け
+                    <br />
+                    オーダーメイド
+                    <br />
+                    生成AI開発
+                  </h2>
+                  <p className="leading-6 mb-4">
+                    製造業のお客様向けに、課題解決や目指す姿に応じたAIをオーダーメイドで開発します。チャットボットや自動報告書作成、設計書確認の効率化など、多数の実績と高い技術力で新たな価値を創出します。
+                  </p>
+                  <Button className="w-full">詳しくはこちら</Button>
+                </div>
+              </div>
+              <div className="bg-white shadow-md">
+                <Image
+                  src="/images/card_image_2.png"
+                  alt="Product Image"
+                  width={600}
+                  height={350}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-6">
+                  <h2 className="text-2xl text-center font-bold mb-6">
+                    製造業向け
+                    <br />
+                    生成AI
+                    <br />
+                    ワークショップ
+                  </h2>
+                  <p className="leading-6 mb-4">
+                    松尾研究所でのAI社会実装経験と大手法人向けコンサル営業を経た講師が、生成AIの基礎から最先端までを分かりやすく説明、講義やハンズオン演習、活用事例を通じ、カスタマイズワークショップを提供します。
+                  </p>
+                  <Button className="w-full">詳しくはこちら</Button>
+                </div>
+              </div>
+              <div className="bg-white shadow-md">
+                <Image
+                  src="/images/card_image_3.png"
+                  alt="Product Image"
+                  width={600}
+                  height={350}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-6">
+                  <h2 className="text-2xl text-center font-bold mb-6">
+                    情報漏洩しない
+                    <br />
+                    セキュアチャット
+                    <br />
+                    の提供
+                  </h2>
+                  <p className="leading-6 mb-4">
+                    セキュアに使える社内専用AIチャットボットアプリを開発・提供しています。
+                    業務内容や社内環境に合わせたAIを搭載しており、ユーザーの日々の業務をサポートし、業務効率の向上に貢献します。
+                  </p>
+                  <Button className="w-full">詳しくはこちら</Button>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+    </main>
   );
 }
