@@ -2,31 +2,32 @@ import Banner from "@/components/modal/banner";
 import SphereParticleSystem from "@/utils/threejs_particle";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import nextConfig from "@/next.config.mjs";
+const BASE_PATH = nextConfig.basePath || "";
 
 const clientLogos = [
-  { src: "/images/client_logo/sumitomo.png", alt: "Client 1", width: 180, height: 50 },
-  { src: "/images/client_logo/tokyo.png", alt: "Client 2", width: 180, height: 50 },
-  { src: "/images/client_logo/stnet.png", alt: "Client 3", width: 150, height: 50 },
-  { src: "/images/client_logo/soundone.png", alt: "Client 4", width: 280, height: 50 },
-  { src: "/images/client_logo/npat.png", alt: "Client 5", width: 180, height: 50 },
-  { src: "/images/client_logo/sagri.png", alt: "Client 6", width: 120, height: 50 },
-  { src: "/images/client_logo/yamaguchi.png", alt: "Client 7", width: 300, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/sumitomo.png`, alt: "Client 1", width: 180, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/tokyo.png`, alt: "Client 2", width: 180, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/stnet.png`, alt: "Client 3", width: 150, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/soundone.png`, alt: "Client 4", width: 280, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/npat.png`, alt: "Client 5", width: 180, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/sagri.png`, alt: "Client 6", width: 120, height: 50 },
+  { src: `${BASE_PATH}/images/client_logo/yamaguchi.png`, alt: "Client 7", width: 300, height: 50 },
 ];
-
 const partnerslogos = [
-  { src: "/images/partners_logo/google_logo.png", alt: "Client 1", width: 350, height: 50 },
-  { src: "/images/partners_logo/AWS_Activate_logo.png", alt: "Client 2", width: 200, height: 50 },
-  { src: "/images/partners_logo/microsoft_logo.png", alt: "Client 3", width: 200, height: 50 },
-  { src: "/images/partners_logo/nttpc_communications_logo.png", alt: "Client 4", width: 230, height: 50 },
-  { src: "/images/partners_logo/Socoラボロゴ.png", alt: "Client 5", width: 80, height: 50 },
-  { src: "/images/partners_logo/hexagon.png", alt: "Client 6", width: 120, height: 50 },
-  { src: "/images/partners_logo/ICF_logo.png", alt: "Client 7", width: 180, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/google_logo.png`, alt: "Client 1", width: 350, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/AWS_Activate_logo.png`, alt: "Client 2", width: 200, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/microsoft_logo.png`, alt: "Client 3", width: 200, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/nttpc_communications_logo.png`, alt: "Client 4", width: 230, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/Socolabo.png`, alt: "Client 5", width: 80, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/hexagon.png`, alt: "Client 6", width: 120, height: 50 },
+  { src: `${BASE_PATH}/images/partners_logo/ICF_logo.png`, alt: "Client 7", width: 180, height: 50 },
 ];
 
 export default function Home() {
   return (
     <main className="flex flex-col h-full">
-      <Banner imageSrc="/images/banner_20240918.png" altText="生成AI事例への案内バナー" />
+      <Banner imageSrc={`${BASE_PATH}/images/banner_20240918.png`} altText="生成AI事例への案内バナー" />
 
       {/* ヒーローセクション */}
       <section id="hero" className="relative w-full h-[900px] ">

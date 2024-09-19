@@ -21,7 +21,7 @@ export default function Banner({ imageSrc, altText }: BannerProps) {
   return (
     <div className="fixed bottom-4 right-4 z-50 max-w-sm">
       <div className="relative rounded-lg overflow-hidden shadow-lg">
-        <Image src={imageSrc} alt={altText} width={200} height={150} layout="responsive" className="rounded-lg" />
+        <Image src={imageSrc} alt={altText} width={300} height={150} layout="responsive" className="rounded-lg" />
         <button
           onClick={() => setIsVisible(false)}
           className="absolute top-2 right-2 bg-white bg-opacity-70 rounded-full p-1 hover:bg-opacity-100 transition-all duration-200"
